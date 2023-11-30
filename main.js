@@ -8,12 +8,32 @@ function start() {
     startTime = new Date();
 };
 
-function end() {
-    endTime = new Date();
-    var timeDiff = endTime - startTime;
-    var li = document.createElement("li")
-    var textNode = document.createTextNode(timeDiff);
-    li.appendChild(textNode);
+var counter = 0;
+var counter2 = 0
+var array = [];
 
-    div.appendChild(li);
+function end() {
+
+    if (counter > 0) {
+        endTime = new Date();
+        var timeDiff = endTime - startTime;
+        var newtime = timeDiff - array[counter2];
+        var li = document.createElement("li")
+        var textNode = document.createTextNode(newtime);
+        li.appendChild(textNode);
+
+        div.appendChild(li);
+        array.push(timeDiff);
+        counter2++
+    } else {
+        endTime = new Date();
+        var timeDiff = endTime - startTime;
+        var li = document.createElement("li")
+        var textNode = document.createTextNode(timeDiff);
+        li.appendChild(textNode);
+
+        div.appendChild(li);
+        array.push(timeDiff);
+        counter++;
+    }
 }
